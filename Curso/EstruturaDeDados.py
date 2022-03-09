@@ -328,7 +328,7 @@ def encontra_idx(lista, elemento):
             return idx
     return  print(f"O elemento '{elemento}' não está na lista!")
 print(encontra_idx(alfabeto,'k'))
-'''
+
 #Usando map() e comparando
 numeros= list(range(1,11))
 def quadrado(x):
@@ -354,6 +354,36 @@ print(list(map(lambda  x: x**2, numeros)), ' --> metodo com lambda')
 print([x**2 for x in numeros], ' --> metodo com compresao de lista')
 print(nova_lista, ' --> metodo normal')
 #os códigos acima fazem a mesma coisa
+
+######### usando o método Filter
+numeros = [1,2,3,4,5,6,7,8,9,10]
+
+#print(filter(lambda x: x> 5, numeros))
+
+#print(list(filter(lambda x: x>5, numeros)))
+
+#print([x for x in numeros if x >5])
+
+dados = ['0','0.0','b', 'c', '', '', 'f', '', 'h', 'i']
+
+#print(dados) #vai trazer todos os dados, inclusive os aspas fazios
+print(list(filter(None, dados))) #tratar os dados, um problema é que o númeral zero ele vai entender como vazio, e em muitos casos não será
+#uma forma para tratar isso é usando a seguinte função
+def vazio(x):
+    if x == '':
+        return False
+    return True
+print(list(filter(vazio, dados)))
+##### observação: nessa versão do python ele está tratando os dados, não trazendo os campos em branco e trazendo os campos com zero.
+
+########## trabalhando com REDUCE
+from functools import reduce
+numeros = [1,2,3,4,5,6,7,8,9,10]
+print(numeros)
+print(sum(numeros))
+print(reduce(lambda x,y: x*y,numeros))
+
+'''
 
 
 
